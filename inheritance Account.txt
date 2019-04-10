@@ -1,0 +1,42 @@
+//Ali S. Younis
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class account
+{
+protected:
+	int custNum;
+	double balance;
+public:
+	account(){}
+	account(int n,double b)
+	{custNum=n;balance=b;}
+	double getbal(){return balance;}
+};
+class trans:public account
+{
+protected:
+	int tranID;
+	int amount;
+public:
+	trans(int a,int b){
+		custNum=a ,balance=b;
+		tranID=0;amount=0;
+	}
+	void settran()
+	{
+		cout<<"enter the trnsmission ID :";cin>>tranID;
+		cout<<"enter the amount to be transmited :";cin>>amount;
+		if(amount>balance)
+			cout<<"can not trans ; your acoount less than that trans \n";
+		else
+		{balance-=amount; cout<<"your transmition done \n your account balance :"<<getbal()<<endl;}
+	}
+};
+void main()
+{
+	trans t(30,1000.45);
+
+	t.settran();
+	_getch();
+}

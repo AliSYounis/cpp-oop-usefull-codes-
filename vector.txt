@@ -1,0 +1,44 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class vector
+{
+int *vec;
+int size;
+public:
+	vector(int s)
+	{size=s; vec=new int[size];}
+	void modify()
+	{
+	cout<<"enter the elements : \n";
+	for(int i=0;i<size;i++)
+		cin>>vec[i];
+	}
+	void display()
+	{
+	for(int i=0;i<size;i++)
+		cout<<vec[i]<<" ";
+	
+	}
+	vector operator+(vector v)
+	{
+	vector a(size);
+	for(int i=0;i<size;i++)
+		a.vec[i]=vec[i]+v.vec[i];
+	return a;
+	}
+};
+void main()
+{
+vector a(3),b(3),c(3);
+b.modify();
+a.modify();
+c=a+b;
+a.display();
+cout<<"+";
+b.display();
+cout<<"=";
+c.display();
+_getch();
+
+}

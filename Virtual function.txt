@@ -1,0 +1,67 @@
+// Virtual Function program Ali S. Younis
+#include<iostream>
+#include<conio.h>
+#include<string>
+
+using namespace std;
+class media
+{  protected:
+string title;
+float price;
+public:
+	media(){title='NULL';price=0;}
+	void settitle(){cout<<"enter the title :";cin>>title;}
+	void setprice(){cout<<"enter the price :";cin>>price;}
+	virtual void showdetails(){cout<<"title :"<<title<<"\t price :"<<price<<endl;}
+
+};
+class Book:public media
+{
+protected:
+	int pages;
+public:
+	Book(){pages=0;}
+	void setpages(){cout<<"enter the number of pages :";cin>>pages;}
+	void showdetails()
+	{cout<<"Book title :"<<title<<"\t Pages :"<<pages<<"\t price :"<<price<<endl;}
+};
+class DVD:public media
+{
+protected:
+	float time;
+public:
+	DVD(){time=0.0;}
+	void settime(){cout<<"enter the time length of DVD :";cin>>time;}
+	void showdetails()
+	{
+	cout<<"DVD title :"<<title<<"\t lenght :"<<time<<"\t price :"<<price<<endl;
+	
+	}
+
+};
+void main()
+{
+media m;
+Book B;
+DVD D;
+cout<<"Media \n";
+m.settitle();
+m.setprice();
+cout<<"Book \n";
+B.settitle();
+B.setprice();
+B.setpages();
+cout<<"DVD \n";
+D.settitle();
+D.setprice();
+D.settime();
+media *p;
+p=&m;
+p->showdetails();
+p=&B;
+p->showdetails();
+p=&D;
+p->showdetails();
+_getch();
+
+}

@@ -1,0 +1,67 @@
+//Ali S. Younis
+#include<iostream>
+#include<conio.h>
+#include<string>
+using namespace std;
+class Parking_Garage
+{
+	string *plateID;
+	int size;
+	int exsist;
+public:
+	Parking_Garage(){size=100;exsist=0;
+	plateID=new string[size];	
+	for(int i=0;i<size;i++)
+		plateID[i]='NULL';
+	}
+	bool isempty(){
+		if(exsist==0)
+	return true;
+		else
+			return false;
+	}
+	bool isfull(){
+		if(exsist==100)
+			return true;
+		else
+			return false;
+	}
+	void incar()
+	{exsist++;
+		cout<<"enter the plate ID of the car :";cin>>plateID[exsist];
+		
+	}
+	void outcar()
+	{
+		int s;cout<<"enter the number of deleted car :";cin>>s;
+		cout<<"the car has been deleted \n";plateID[s-1]='NULL';exsist--;
+	}
+	int getexsist(){return exsist;}
+};
+void main()
+{ Parking_Garage cars;
+int num;
+int select;
+do{
+	cout<<"1 To insert car \n 2 To out the car \n 3 To print no of cars  \n 0 To exit \n";
+	cin>>select;
+	switch(select)
+	{
+	case 1: if(cars.isfull())
+				cout<<"Garage is full \n";
+			else
+				cars.incar();break;
+	case 2: cars.outcar();break;
+	case 3: cout<<"num of exsist cars is :"<<cars.getexsist()<<endl;break;
+	case 0:break;
+	default:cout<<"wrong choise Try Again \n";break;
+
+	}
+
+
+}while(select!=0);
+
+_getch();
+
+
+}

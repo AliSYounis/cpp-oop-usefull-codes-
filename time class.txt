@@ -1,0 +1,36 @@
+//Ali S. Younis
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class Time
+{
+int Hours;
+int Minutes;
+int Seconds;
+public:
+	Time(){Hours=12;Minutes=0;Seconds=0;}
+	void setTime()
+	{
+	cout<<"hours :";cin>>Hours;
+	cout<<"minutes :";cin>>Minutes;
+	cout<<"seconds :";cin>>Seconds;
+	if(Seconds>=60)
+	{Seconds-=60;Minutes++;}
+	if(Minutes>=60)
+	{Minutes-=60;Hours++;}
+	}
+	void print(){cout<<Hours<<":"<<Minutes<<":"<<Seconds<<endl;}
+	void operator++()
+	{Hours++;}
+};
+void main()
+{
+Time t;
+t.print();
+t.setTime();
+t.print();
+t++;
+cout<<"\n after icrement :";
+t.print();
+_getch();
+}
